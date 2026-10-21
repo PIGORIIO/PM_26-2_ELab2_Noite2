@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,8 +75,16 @@ public class Agenda {
 	 * @return uma {@code String} com as consultas do dia 
 	 */
 	public String agendaDoDia(LocalDate dia) {
-		//TODO
-		return "";
+		String resultado = "";
+		long diaParametro = LocalDate.now().until(dia, ChronoUnit.DAYS);
+		for(Consulta consulta : agenda){
+			long dias = LocalDate.now().until(consulta.horario, ChronoUnit.DAYS);
+			if(dias == diaParametro){
+				resultado = consulta.toString();
+			}
+
+		}
+		return resultado;
 	}
 
 }

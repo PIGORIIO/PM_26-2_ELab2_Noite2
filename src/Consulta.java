@@ -102,7 +102,10 @@ public abstract class Consulta {
 	 * @return {@code true} se a consulta ocorrer na data informada;
 	 */
 	public boolean estahNoDia(LocalDate data) {
-		//TODO
+		LocalDate dataOriginal = LocalDate.from(horario);
+		if(dataOriginal == data){
+			return true;
+		}
 		return false;
 	}
 
